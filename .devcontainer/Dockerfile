@@ -46,14 +46,14 @@ echo "$USER ALL=NOPASSWD: ALL" >> /etc/sudoers.d/50-$USER
 USER cairo
 
 #Install software-properties-common to allow the command apt-add-repository to work
-RUN sudo apt-get update -qq \
-&& sudo apt-get install -yq --no-install-recommends \
-  software-properties-common \
-  openssh-client \
-&& sudo apt-get clean \
-&& sudo rm -rf /var/cache/apt/archives/* \
-&& sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-&& sudo truncate -s 0 /var/log/*log
+# RUN sudo apt-get update -qq \
+# && sudo apt-get install -yq --no-install-recommends \
+#   software-properties-common \
+#   openssh-client \
+# && sudo apt-get clean \
+# && sudo rm -rf /var/cache/apt/archives/* \
+# && sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+# && sudo truncate -s 0 /var/log/*log
 
 # Install Git Cli
 RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
