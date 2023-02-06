@@ -1,4 +1,4 @@
-FROM python:3.11.1-slim-buster
+FROM python:3.9-slim-buster
 
 ARG UID=1000
 ARG GID=1000
