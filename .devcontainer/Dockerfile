@@ -14,6 +14,10 @@ RUN apt-get update -qq \
     git \
     sudo \
     iproute2 \
+  && python -m pip install --upgrade pip \
+  && sudo apt install -y libgmp3-dev \
+  && pip3 install ecdsa fastecdsa sympy \
+  && pip3 install cairo-lang openzeppelin-cairo-contracts \
   && apt-get clean \
   && rm -rf /var/cache/apt/archives/* \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -61,4 +65,10 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | s
 RUN sudo apt install -y zsh imagemagick jq \
 && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+# Enabling Virtual Environment as recommended in https://www.cairo-lang.org/docs/quickstart.html and upgrading frozendict to avoid compile error (AttributeError: module 'collections' has no attribute 'Mapping')
+RUN python -m venv ~/cairo_venv \
+&& pip3 install frozendict -U
+# && source ~/cairo_venv/bin/activate
+
 ENV PATH /app/bin:$PATH
+# ENV PATH /home/cairo/.local/bin:$PATH

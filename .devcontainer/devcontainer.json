@@ -19,7 +19,8 @@
           // "terminal.integrated.shell.linux": "/bin/zsh",
           "dotfiles.repository": "isabelatravaglia/dotfiles",
           "dotfiles.targetPath": "~/dotfiles",
-          "dotfiles.installCommand": "~/dotfiles/install.sh"
+          "dotfiles.installCommand": "~/dotfiles/install.sh",
+          "editor.wordWrap": "on"
         }
       }
     },
