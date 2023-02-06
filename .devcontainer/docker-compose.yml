@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    # See https://aka.ms/vscode-remote/containers/non-root for details.
+    user: cairo
+
+    build: 
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/workspace:cached
+      - $HOME/.ssh/:/home/cairo/.ssh # Mount the ssh folder to authenticate with github
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
