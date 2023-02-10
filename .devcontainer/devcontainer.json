@@ -15,13 +15,16 @@
           "CoenraadS.bracket-pair-colorizer"
         ],
         "settings": {
+          "terminal.integrated.defaultProfile.linux": "zsh",
           "workbench.colorTheme": "Cobalt2",
-          // "terminal.integrated.shell.linux": "/bin/zsh",
           "dotfiles.repository": "isabelatravaglia/dotfiles",
           "dotfiles.targetPath": "~/dotfiles",
-          "dotfiles.installCommand": "~/dotfiles/install.sh"
+          "dotfiles.installCommand": "~/dotfiles/install.sh",
+          "editor.wordWrap": "on"
         }
       }
     },
-    "remoteUser": "cairo"
+    "remoteUser": "cairo",
+    "postStartCommand": "zsh && source ~/cairo_venv/bin/activate"
+    // "postStartCommand": "source ~/cairo_venv/bin/activate"
   }
