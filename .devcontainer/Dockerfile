@@ -65,9 +65,8 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | s
 RUN sudo apt install -y zsh imagemagick jq \
 && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-# Enabling Virtual Environment as recommended in https://www.cairo-lang.org/docs/quickstart.html and upgrading frozendict to avoid compile error (AttributeError: module 'collections' has no attribute 'Mapping')
-RUN python -m venv ~/cairo_venv \
-&& pip3 install frozendict -U
+# Enabling Virtual Environment as recommended in https://www.cairo-lang.org/docs/quickstart.html
+RUN python -m venv ~/cairo_venv
 # && source ~/cairo_venv/bin/activate
 
 ENV PATH /app/bin:$PATH
